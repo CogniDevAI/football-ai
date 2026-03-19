@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderMarkets(data);
         renderBets(data);
         renderDaily(data);
+        renderPending(data);
         setupFilters(data);
     }
 });
@@ -23,6 +24,11 @@ async function loadData() {
 function renderStats(data) {
     const { bankroll, stats } = data;
     
+    // Only count completed bets
+    const completedBets = data.bets.filter(b => b.status !== 'pending');
+    const wins = completedBets.filter(b => b.won === true).length;
+    const totalCompleted = completedBets.length;
+    
     // Bankroll
     document.getElementById('bankroll').textContent = formatCurrency(bankroll.current);
     const changePercent = ((bankroll.current - bankroll.initial) / bankroll.initial * 100).toFixed(1);
@@ -35,10 +41,10 @@ function renderStats(data) {
     plEl.textContent = formatCurrency(stats.profitLoss);
     plEl.className = `stat-value ${stats.profitLoss >= 0 ? 'positive' : 'negative'}`;
     
-    // Win Rate
-    const winRate = stats.totalBets > 0 ? (stats.wins / stats.totalBets * 100).toFixed(1) : 0;
+    // Win Rate (only completed)
+    const winRate = totalCompleted > 0 ? (wins / totalCompleted * 100).toFixed(1) : 0;
     document.getElementById('winRate').textContent = `${winRate}%`;
-    document.getElementById('winRateDetail').textContent = `${stats.wins}/${stats.totalBets}`;
+    document.getElementById('winRateDetail').textContent = `${wins}/${totalCompleted}`;
     
     // ROI
     const roi = stats.totalStaked > 0 ? (stats.profitLoss / stats.totalStaked * 100).toFixed(1) : 0;
@@ -64,6 +70,7 @@ function renderMarkets(data) {
     };
     
     Object.entries(data.markets).forEach(([name, market]) => {
+        if (market.total === 0) return; // Skip empty markets
         const roi = market.staked > 0 ? (market.pl / market.staked * 100).toFixed(1) : 0;
         const card = document.createElement('div');
         card.className = 'market-card';
@@ -80,19 +87,82 @@ function renderMarkets(data) {
     });
 }
 
+function renderPending(data) {
+    const pendingBets = data.bets.filter(b => b.status === 'pending');
+    if (pendingBets.length === 0) return;
+    
+    // Create pending section if it doesn't exist
+    let pendingSection = document.getElementById('pendingSection');
+    if (!pendingSection) {
+        pendingSection = document.createElement('section');
+        pendingSection.id = 'pendingSection';
+        pendingSection.className = 'pending-section';
+        pendingSection.innerHTML = `
+            <div class="container">
+                <h2 class="section-title">⏳ Apuestas Pendientes</h2>
+                <div class="pending-grid" id="pendingGrid"></div>
+                <div class="pending-summary" id="pendingSummary"></div>
+            </div>
+        `;
+        // Insert after stats section
+        const statsSection = document.querySelector('.stats-section');
+        statsSection.after(pendingSection);
+    }
+    
+    const grid = document.getElementById('pendingGrid');
+    grid.innerHTML = '';
+    
+    let totalStake = 0;
+    let potentialReturn = 0;
+    
+    pendingBets.forEach(bet => {
+        totalStake += bet.stake;
+        potentialReturn += bet.stake * bet.odds;
+        
+        const card = document.createElement('div');
+        card.className = 'pending-card';
+        card.innerHTML = `
+            <div class="pending-header">
+                <span class="pending-league">${bet.league}</span>
+                <span class="pending-odds">@ ${bet.odds.toFixed(2)}</span>
+            </div>
+            <div class="pending-match">${bet.match}</div>
+            <div class="pending-pick">${bet.pick}</div>
+            <div class="pending-footer">
+                <span class="pending-stake">${formatCurrency(bet.stake)}</span>
+                <span class="pending-potential">→ ${formatCurrency(bet.stake * bet.odds)}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+    
+    document.getElementById('pendingSummary').innerHTML = `
+        <div class="summary-row">
+            <span>Total apostado:</span>
+            <strong>${formatCurrency(totalStake)}</strong>
+        </div>
+        <div class="summary-row">
+            <span>Retorno potencial:</span>
+            <strong class="potential">${formatCurrency(potentialReturn)}</strong>
+        </div>
+    `;
+}
+
 function renderBets(data, filter = 'all') {
     const tbody = document.getElementById('betsTableBody');
     tbody.innerHTML = '';
     
-    let filteredBets = [...data.bets].reverse(); // Most recent first
+    // Only show completed bets in main table
+    let completedBets = data.bets.filter(b => b.status !== 'pending');
+    completedBets = [...completedBets].reverse(); // Most recent first
     
     if (filter === 'won') {
-        filteredBets = filteredBets.filter(b => b.won);
+        completedBets = completedBets.filter(b => b.won === true);
     } else if (filter === 'lost') {
-        filteredBets = filteredBets.filter(b => !b.won);
+        completedBets = completedBets.filter(b => b.won === false);
     }
     
-    filteredBets.forEach((bet, index) => {
+    completedBets.forEach((bet, index) => {
         const row = document.createElement('tr');
         row.style.animationDelay = `${index * 0.05}s`;
         row.className = bet.won ? 'won' : 'lost';
@@ -122,9 +192,11 @@ function renderDaily(data) {
     const grid = document.getElementById('dailyGrid');
     grid.innerHTML = '';
     
-    // Group bets by date
+    // Group completed bets by date
+    const completedBets = data.bets.filter(b => b.status !== 'pending');
     const dailyData = {};
-    data.bets.forEach(bet => {
+    
+    completedBets.forEach(bet => {
         if (!dailyData[bet.date]) {
             dailyData[bet.date] = { bets: 0, wins: 0, staked: 0, pl: 0 };
         }
