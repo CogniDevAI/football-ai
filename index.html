@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betting Tracker | Tony's Professional Betting</title>
+    <meta name="description" content="Registro público de apuestas deportivas con análisis de valor y ROI">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <span class="logo-icon">🎯</span>
+                        <span class="logo-text">Betting Tracker</span>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-pill win-rate">
+                            <span class="label">Win Rate</span>
+                            <span class="value" id="headerWinRate">--</span>
+                        </div>
+                        <div class="stat-pill roi">
+                            <span class="label">ROI</span>
+                            <span class="value" id="headerROI">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Stats -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Bankroll</span>
+                            <span class="stat-value" id="bankroll">$0.00</span>
+                            <span class="stat-change positive" id="bankrollChange">+0%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Profit/Loss</span>
+                            <span class="stat-value" id="profitLoss">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Win Rate</span>
+                            <span class="stat-value" id="winRate">0%</span>
+                            <span class="stat-subtitle" id="winRateDetail">0/0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-info">
+                            <span class="stat-label">ROI</span>
+                            <span class="stat-value" id="roi">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance by Market -->
+        <section class="markets-section">
+            <div class="container">
+                <h2 class="section-title">📊 Rendimiento por Mercado</h2>
+                <div class="markets-grid" id="marketsGrid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Bets -->
+        <section class="bets-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">📋 Historial de Apuestas</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Todas</button>
+                        <button class="filter-btn" data-filter="won">Ganadas</button>
+                        <button class="filter-btn" data-filter="lost">Perdidas</button>
+                    </div>
+                </div>
+                <div class="bets-table-wrapper">
+                    <table class="bets-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Partido</th>
+                                <th>Mercado</th>
+                                <th>Pick</th>
+                                <th>Cuota</th>
+                                <th>Stake</th>
+                                <th>Resultado</th>
+                                <th>P/L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="betsTableBody">
+                            <!-- Filled by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Summary -->
+        <section class="daily-section">
+            <div class="container">
+                <h2 class="section-title">📅 Resumen por Día</h2>
+                <div class="daily-grid" id="dailyGrid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Sistema de Value Betting | Análisis por <strong>Jarvis AI</strong> 🤖</p>
+                <p class="disclaimer">Las apuestas conllevan riesgo. Apuesta responsablemente.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

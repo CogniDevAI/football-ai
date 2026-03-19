@@ -1,0 +1,32 @@
+{
+  "bankroll": 100.00,
+  "initialBankroll": 100.00,
+  "profit": 0.00,
+  "roi": 0.00,
+  "winrate": 0.00,
+  "totalBets": 0,
+  "wins": 0,
+  "losses": 0,
+  "totalStaked": 0.00,
+  "lastUpdate": "2026-03-18 05:30 UTC",
+  "activeBets": [],
+  "history": [],
+  "marketStats": {
+    "1X2": { "wins": 0, "losses": 0, "profit": 0 },
+    "Over/Under": { "wins": 0, "losses": 0, "profit": 0 },
+    "BTTS": { "wins": 0, "losses": 0, "profit": 0 },
+    "Handicap": { "wins": 0, "losses": 0, "profit": 0 },
+    "Corners": { "wins": 0, "losses": 0, "profit": 0 },
+    "Goleadores": { "wins": 0, "losses": 0, "profit": 0 }
+  },
+  "leagueStats": {
+    "Champions League": { "wins": 0, "losses": 0, "profit": 0 },
+    "Premier League": { "wins": 0, "losses": 0, "profit": 0 },
+    "La Liga": { "wins": 0, "losses": 0, "profit": 0 },
+    "Serie A": { "wins": 0, "losses": 0, "profit": 0 },
+    "Bundesliga": { "wins": 0, "losses": 0, "profit": 0 },
+    "Ligue 1": { "wins": 0, "losses": 0, "profit": 0 },
+    "Championship": { "wins": 0, "losses": 0, "profit": 0 },
+    "Saudi Pro League": { "wins": 0, "losses": 0, "profit": 0 }
+  }
+}

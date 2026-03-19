@@ -1,0 +1,153 @@
+{
+  "bankroll": {
+    "initial": 50.00,
+    "current": 57.26
+  },
+  "stats": {
+    "totalBets": 8,
+    "wins": 7,
+    "losses": 1,
+    "totalStaked": 10.00,
+    "totalReturned": 17.26,
+    "profitLoss": 7.26
+  },
+  "markets": {
+    "Handicap": {
+      "total": 2,
+      "wins": 2,
+      "staked": 4.00,
+      "pl": 3.10
+    },
+    "BTTS": {
+      "total": 1,
+      "wins": 1,
+      "staked": 1.50,
+      "pl": 1.13
+    },
+    "Combo": {
+      "total": 3,
+      "wins": 2,
+      "staked": 3.50,
+      "pl": 0.93
+    },
+    "Goleador": {
+      "total": 1,
+      "wins": 1,
+      "staked": 0.50,
+      "pl": 0.60
+    },
+    "Parlay": {
+      "total": 1,
+      "wins": 1,
+      "staked": 0.50,
+      "pl": 1.50
+    }
+  },
+  "bets": [
+    {
+      "id": 1,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Barcelona vs Newcastle",
+      "market": "Handicap",
+      "pick": "Barcelona -1",
+      "odds": 1.83,
+      "stake": 2.00,
+      "result": "7-2",
+      "won": true,
+      "pl": 1.66
+    },
+    {
+      "id": 2,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Barcelona vs Newcastle",
+      "market": "Combo",
+      "pick": "Barça + O2.5",
+      "odds": 1.95,
+      "stake": 1.00,
+      "result": "7-2",
+      "won": true,
+      "pl": 0.95
+    },
+    {
+      "id": 3,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Barcelona vs Newcastle",
+      "market": "Goleador",
+      "pick": "Raphinha Gol",
+      "odds": 2.20,
+      "stake": 0.50,
+      "result": "⚽⚽",
+      "won": true,
+      "pl": 0.60
+    },
+    {
+      "id": 4,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Liverpool vs Galatasaray",
+      "market": "Handicap",
+      "pick": "Liverpool -1",
+      "odds": 1.72,
+      "stake": 2.00,
+      "result": "4-0",
+      "won": true,
+      "pl": 1.44
+    },
+    {
+      "id": 5,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Liverpool vs Galatasaray",
+      "market": "Combo",
+      "pick": "BTTS + O2.5",
+      "odds": 1.90,
+      "stake": 1.00,
+      "result": "4-0",
+      "won": false,
+      "pl": -1.00
+    },
+    {
+      "id": 6,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Tottenham vs Atlético",
+      "market": "BTTS",
+      "pick": "BTTS Sí",
+      "odds": 1.75,
+      "stake": 1.50,
+      "result": "3-2",
+      "won": true,
+      "pl": 1.13
+    },
+    {
+      "id": 7,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "Bayern vs Atalanta",
+      "market": "Combo",
+      "pick": "BTTS + O2.5",
+      "odds": 1.65,
+      "stake": 1.50,
+      "result": "4-1",
+      "won": true,
+      "pl": 0.98
+    },
+    {
+      "id": 8,
+      "date": "2026-03-18",
+      "league": "UCL",
+      "match": "PARLAY 3-Legs",
+      "market": "Parlay",
+      "pick": "TOT BTTS + BAY BTTS + LIV -1",
+      "odds": 4.00,
+      "stake": 0.50,
+      "result": "✅✅✅",
+      "won": true,
+      "pl": 1.50
+    }
+  ],
+  "lastUpdated": "2026-03-18T23:39:00Z"
+}
