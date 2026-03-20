@@ -7,7 +7,7 @@
     "totalBets": 13,
     "wins": 9,
     "losses": 4,
-    "pending": 7,
+    "pending": 8,
     "totalStaked": 18.07,
     "totalReturned": 25.33,
     "profitLoss": 7.26
@@ -296,7 +296,18 @@
       "odds": 1.85,
       "stake": 0.58,
       "status": "pending"
+    },
+    {
+      "id": 21,
+      "date": "2026-03-20",
+      "league": "MULTI",
+      "match": "🎰 LA SOÑADORA",
+      "market": "Parlay",
+      "pick": "Napoli + Lens BTTS No + Stoke DC",
+      "odds": 4.54,
+      "stake": 0.58,
+      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-03-20T05:02:00Z"
+  "lastUpdated": "2026-03-20T05:03:00Z"
 }
