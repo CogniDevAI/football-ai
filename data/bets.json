@@ -1,29 +1,29 @@
 {
   "bankroll": {
     "initial": 50.00,
-    "current": 57.26
+    "current": 56.36
   },
   "stats": {
-    "totalBets": 13,
-    "wins": 9,
-    "losses": 4,
-    "pending": 8,
-    "totalStaked": 18.07,
-    "totalReturned": 25.33,
-    "profitLoss": 7.26
+    "totalBets": 21,
+    "wins": 13,
+    "losses": 8,
+    "pending": 0,
+    "totalStaked": 26.70,
+    "totalReturned": 33.06,
+    "profitLoss": 6.36
   },
   "markets": {
     "Handicap": {
-      "total": 2,
-      "wins": 2,
-      "staked": 4.00,
-      "pl": 3.10
+      "total": 4,
+      "wins": 3,
+      "staked": 6.30,
+      "pl": 3.66
     },
     "BTTS": {
-      "total": 2,
-      "wins": 2,
-      "staked": 3.23,
-      "pl": 2.34
+      "total": 4,
+      "wins": 3,
+      "staked": 5.53,
+      "pl": 1.97
     },
     "Combo": {
       "total": 3,
@@ -38,16 +38,28 @@
       "pl": 0.60
     },
     "Parlay": {
-      "total": 2,
-      "wins": 1,
-      "staked": 1.08,
-      "pl": 0.92
-    },
-    "ML": {
       "total": 3,
       "wins": 1,
-      "staked": 5.76,
-      "pl": -0.63
+      "staked": 1.66,
+      "pl": 0.34
+    },
+    "ML": {
+      "total": 4,
+      "wins": 2,
+      "staked": 7.48,
+      "pl": 0.52
+    },
+    "DC": {
+      "total": 1,
+      "wins": 0,
+      "staked": 1.15,
+      "pl": -1.15
+    },
+    "O/U": {
+      "total": 1,
+      "wins": 1,
+      "staked": 0.58,
+      "pl": 0.49
     }
   },
   "bets": [
@@ -203,7 +215,7 @@
       "pick": "Crystal Palace ML",
       "odds": 1.80,
       "stake": 1.73,
-      "result": "1-1 (90')",
+      "result": "1-1",
       "won": false,
       "pl": -1.73
     },
@@ -229,7 +241,9 @@
       "pick": "Napoli",
       "odds": 1.67,
       "stake": 1.72,
-      "status": "pending"
+      "result": "0-1",
+      "won": true,
+      "pl": 1.15
     },
     {
       "id": 15,
@@ -240,7 +254,9 @@
       "pick": "Genoa (0) AH",
       "odds": 1.60,
       "stake": 1.15,
-      "status": "pending"
+      "result": "0-2",
+      "won": false,
+      "pl": -1.15
     },
     {
       "id": 16,
@@ -251,7 +267,9 @@
       "pick": "Man United (0) AH",
       "odds": 1.62,
       "stake": 1.15,
-      "status": "pending"
+      "result": "2-2",
+      "won": true,
+      "pl": 0.71
     },
     {
       "id": 17,
@@ -262,7 +280,9 @@
       "pick": "BTTS Sí",
       "odds": 1.68,
       "stake": 1.15,
-      "status": "pending"
+      "result": "3-1",
+      "won": true,
+      "pl": 0.78
     },
     {
       "id": 18,
@@ -273,7 +293,9 @@
       "pick": "BTTS No",
       "odds": 1.70,
       "stake": 1.15,
-      "status": "pending"
+      "result": "5-1",
+      "won": false,
+      "pl": -1.15
     },
     {
       "id": 19,
@@ -284,7 +306,9 @@
       "pick": "Stoke DC (X2)",
       "odds": 1.60,
       "stake": 1.15,
-      "status": "pending"
+      "result": "3-1",
+      "won": false,
+      "pl": -1.15
     },
     {
       "id": 20,
@@ -295,7 +319,9 @@
       "pick": "Under 2.5",
       "odds": 1.85,
       "stake": 0.58,
-      "status": "pending"
+      "result": "1-1",
+      "won": true,
+      "pl": 0.49
     },
     {
       "id": 21,
@@ -306,8 +332,10 @@
       "pick": "Napoli + Lens BTTS No + Stoke DC",
       "odds": 4.54,
       "stake": 0.58,
-      "status": "pending"
+      "result": "✅❌❌",
+      "won": false,
+      "pl": -0.58
     }
   ],
-  "lastUpdated": "2026-03-20T05:03:00Z"
+  "lastUpdated": "2026-03-20T22:20:00Z"
 }
