@@ -1,15 +1,15 @@
 {
   "bankroll": {
     "initial": 50.00,
-    "current": 57.26
+    "current": 55.58
   },
   "stats": {
-    "totalBets": 8,
-    "wins": 7,
-    "losses": 1,
-    "totalStaked": 10.00,
-    "totalReturned": 17.26,
-    "profitLoss": 7.26
+    "totalBets": 13,
+    "wins": 9,
+    "losses": 4,
+    "totalStaked": 18.07,
+    "totalReturned": 23.65,
+    "profitLoss": 5.58
   },
   "markets": {
     "Handicap": {
@@ -19,10 +19,10 @@
       "pl": 3.10
     },
     "BTTS": {
-      "total": 1,
-      "wins": 1,
-      "staked": 1.50,
-      "pl": 1.13
+      "total": 2,
+      "wins": 2,
+      "staked": 3.23,
+      "pl": 2.34
     },
     "Combo": {
       "total": 3,
@@ -37,16 +37,16 @@
       "pl": 0.60
     },
     "Parlay": {
-      "total": 1,
+      "total": 2,
       "wins": 1,
-      "staked": 0.50,
-      "pl": 1.50
+      "staked": 1.08,
+      "pl": 0.92
     },
     "ML": {
-      "total": 0,
-      "wins": 0,
-      "staked": 0,
-      "pl": 0
+      "total": 3,
+      "wins": 1,
+      "staked": 5.76,
+      "pl": -2.31
     }
   },
   "bets": [
@@ -163,10 +163,9 @@
       "pick": "BTTS Sí",
       "odds": 1.70,
       "stake": 1.73,
-      "result": "⏳",
-      "won": null,
-      "pl": 0,
-      "status": "pending"
+      "result": "1-2",
+      "won": true,
+      "pl": 1.21
     },
     {
       "id": 10,
@@ -177,10 +176,9 @@
       "pick": "Lyon ML",
       "odds": 1.65,
       "stake": 1.73,
-      "result": "⏳",
-      "won": null,
-      "pl": 0,
-      "status": "pending"
+      "result": "0-2",
+      "won": false,
+      "pl": -1.73
     },
     {
       "id": 11,
@@ -191,10 +189,9 @@
       "pick": "Aston Villa ML",
       "odds": 1.50,
       "stake": 2.30,
-      "result": "⏳",
-      "won": null,
-      "pl": 0,
-      "status": "pending"
+      "result": "2-0",
+      "won": true,
+      "pl": 1.15
     },
     {
       "id": 12,
@@ -205,10 +202,9 @@
       "pick": "Crystal Palace ML",
       "odds": 1.80,
       "stake": 1.73,
-      "result": "⏳",
-      "won": null,
-      "pl": 0,
-      "status": "pending"
+      "result": "1-1 (90')",
+      "won": false,
+      "pl": -1.73
     },
     {
       "id": 13,
@@ -219,15 +215,10 @@
       "pick": "Villa + Lyon + Palace",
       "odds": 4.45,
       "stake": 0.58,
-      "result": "⏳",
-      "won": null,
-      "pl": 0,
-      "status": "pending"
+      "result": "❌ Lyon",
+      "won": false,
+      "pl": -0.58
     }
   ],
-  "pendingBets": {
-    "totalStake": 8.07,
-    "potentialReturn": 16.89
-  },
-  "lastUpdated": "2026-03-19T06:02:00Z"
+  "lastUpdated": "2026-03-20T04:16:00Z"
 }
