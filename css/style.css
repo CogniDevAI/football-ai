@@ -583,9 +583,13 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 12px;
+    }
+    
     .header-content {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
     }
     
     .header-stats {
@@ -593,43 +597,235 @@ body {
         justify-content: center;
     }
     
+    .logo-text {
+        font-size: 18px;
+    }
+    
+    .stats-section {
+        padding: 24px 0;
+    }
+    
     .stats-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 12px;
     }
     
     .stat-card {
-        padding: 16px;
+        padding: 14px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .stat-card.primary {
+        grid-column: span 2;
+        flex-direction: row;
     }
     
     .stat-icon {
-        font-size: 28px;
-        width: 48px;
-        height: 48px;
+        font-size: 24px;
+        width: 44px;
+        height: 44px;
     }
     
     .stat-value {
-        font-size: 22px;
+        font-size: 20px;
+    }
+    
+    .stat-label {
+        font-size: 11px;
+    }
+    
+    .section-title {
+        font-size: 16px;
     }
     
     .section-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
     }
     
     .filters {
         width: 100%;
         overflow-x: auto;
         padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
     }
-}
-
-@media (max-width: 480px) {
-    .stats-grid {
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+    
+    /* Pending section mobile */
+    .pending-section {
+        padding: 24px 0;
+    }
+    
+    .pending-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .pending-card {
+        padding: 16px;
+    }
+    
+    .pending-pick {
+        font-size: 16px;
+    }
+    
+    .pending-summary {
+        padding: 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .summary-row {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .summary-row strong {
+        font-size: 18px;
+    }
+    
+    /* Markets mobile */
+    .markets-section {
+        padding: 24px 0;
     }
     
     .markets-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .market-card {
+        padding: 14px;
+    }
+    
+    .market-name {
+        font-size: 12px;
+    }
+    
+    .market-record {
+        font-size: 20px;
+    }
+    
+    /* Table mobile - card view */
+    .bets-section {
+        padding: 24px 0;
+    }
+    
+    .bets-table-wrapper {
+        border: none;
+        border-radius: 0;
+    }
+    
+    .bets-table {
+        display: block;
+        min-width: unset;
+    }
+    
+    .bets-table thead {
+        display: none;
+    }
+    
+    .bets-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .bets-table tr {
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-card);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        border: 1px solid var(--border-color);
+        border-left: 4px solid var(--accent-green);
+    }
+    
+    .bets-table tr.lost {
+        border-left-color: var(--accent-red);
+    }
+    
+    .bets-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 0;
+        border: none;
+        font-size: 13px;
+    }
+    
+    .bets-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-muted);
+        font-size: 11px;
+        text-transform: uppercase;
+    }
+    
+    .bets-table tr:hover td {
+        background: transparent;
+    }
+    
+    /* Daily section mobile */
+    .daily-section {
+        padding: 24px 0;
+    }
+    
+    .daily-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .daily-card {
+        padding: 16px;
+    }
+    
+    .daily-stats {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .daily-stat {
+        flex: 1 1 40%;
+    }
+    
+    /* Footer mobile */
+    .footer {
+        padding: 24px 0;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card.primary {
+        grid-column: span 1;
+    }
+    
+    .markets-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-stats {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .stat-pill {
+        width: 100%;
+        justify-content: center;
     }
 }
 
