@@ -1,0 +1,84 @@
+{
+  "bankroll": {
+    "initial": 10.00,
+    "current": 10.00
+  },
+  "stats": {
+    "totalBets": 0,
+    "wins": 0,
+    "losses": 0,
+    "pending": 6,
+    "totalStaked": 0,
+    "totalReturned": 0,
+    "profitLoss": 0
+  },
+  "bets": [
+    {
+      "id": 1,
+      "date": "2026-03-20",
+      "league": "La Liga",
+      "match": "Villarreal vs Real Sociedad",
+      "market": "Total Corners",
+      "pick": "Menos 9.5",
+      "odds": 1.87,
+      "stake": 0.20,
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "date": "2026-03-20",
+      "league": "Serie A",
+      "match": "Cagliari vs Napoli",
+      "market": "Total Corners",
+      "pick": "Menos 8.5",
+      "odds": 1.98,
+      "stake": 0.20,
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "date": "2026-03-20",
+      "league": "Ligue 1",
+      "match": "Lens vs Angers",
+      "market": "Total Corners",
+      "pick": "Menos 9.5",
+      "odds": 1.72,
+      "stake": 0.20,
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "date": "2026-03-20",
+      "league": "Premier League",
+      "match": "Bournemouth vs Man United",
+      "market": "Total Corners",
+      "pick": "Menos 10.5",
+      "odds": 1.72,
+      "stake": 0.20,
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "date": "2026-03-20",
+      "league": "Championship",
+      "match": "Preston vs Stoke",
+      "market": "Total Corners",
+      "pick": "Más 10.5",
+      "odds": 2.20,
+      "stake": 0.10,
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "date": "2026-03-20",
+      "league": "PARLAY",
+      "match": "🎰 CORNERS PARLAY",
+      "market": "Parlay 3-Legs",
+      "pick": "Villarreal U9.5 + Cagliari U8.5 + Lens U9.5",
+      "odds": 6.37,
+      "stake": 0.10,
+      "status": "pending"
+    }
+  ],
+  "lastUpdated": "2026-03-20T12:15:00Z"
+}

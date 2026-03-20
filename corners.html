@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚩 Corners Tracker | Jarvis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+        
+        .stat-value.positive { color: #2ecc71; }
+        .stat-value.negative { color: #e74c3c; }
+        
+        .stat-label {
+            color: #888;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .bets-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+        
+        .bet-card {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .bet-card.pending {
+            border-left: 4px solid #f39c12;
+        }
+        
+        .bet-card.won {
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .bet-card.lost {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .bet-id {
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .bet-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .bet-match {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .bet-details {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .bet-pick {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .bet-odds {
+            text-align: right;
+        }
+        
+        .odds-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stake-value {
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .nav-link:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .parlay-card {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(231, 76, 60, 0.2));
+            border: 2px solid #f39c12;
+        }
+        
+        @media (max-width: 600px) {
+            .bet-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .bet-id {
+                justify-self: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚩 Corners Tracker</h1>
+            <p class="subtitle">Estrategia de Corners | Bankroll: $10</p>
+        </header>
+        
+        <div class="stats-grid" id="stats">
+            <!-- Stats loaded dynamically -->
+        </div>
+        
+        <div class="bets-section">
+            <h2 class="section-title">📊 Apuestas de Corners</h2>
+            <div id="bets-list">
+                <!-- Bets loaded dynamically -->
+            </div>
+        </div>
+        
+        <a href="index.html" class="nav-link">← Volver al Tracker Principal</a>
+    </div>
+    
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('data/corners.json');
+                const data = await response.json();
+                renderStats(data);
+                renderBets(data.bets);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+        
+        function renderStats(data) {
+            const { bankroll, stats } = data;
+            const roi = stats.totalStaked > 0 ? ((stats.profitLoss / stats.totalStaked) * 100).toFixed(1) : '0.0';
+            const winRate = stats.totalBets > 0 ? ((stats.wins / stats.totalBets) * 100).toFixed(1) : '0.0';
+            
+            document.getElementById('stats').innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">$${bankroll.current.toFixed(2)}</div>
+                    <div class="stat-label">Bankroll</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value ${stats.profitLoss >= 0 ? 'positive' : 'negative'}">
+                        ${stats.profitLoss >= 0 ? '+' : ''}$${stats.profitLoss.toFixed(2)}
+                    </div>
+                    <div class="stat-label">Profit/Loss</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${stats.wins}/${stats.totalBets || stats.pending}</div>
+                    <div class="stat-label">Wins/Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${winRate}%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value ${parseFloat(roi) >= 0 ? 'positive' : 'negative'}">${roi}%</div>
+                    <div class="stat-label">ROI</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${stats.pending}</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+            `;
+        }
+        
+        function renderBets(bets) {
+            const container = document.getElementById('bets-list');
+            
+            // Sort by date descending, then by id descending
+            const sortedBets = [...bets].sort((a, b) => {
+                if (b.date !== a.date) return b.date.localeCompare(a.date);
+                return b.id - a.id;
+            });
+            
+            container.innerHTML = sortedBets.map(bet => {
+                const statusClass = bet.status === 'pending' ? 'pending' : (bet.won ? 'won' : 'lost');
+                const isParlay = bet.league === 'PARLAY';
+                
+                return `
+                    <div class="bet-card ${statusClass} ${isParlay ? 'parlay-card' : ''}">
+                        <div class="bet-id">#${bet.id}</div>
+                        <div class="bet-info">
+                            <div class="bet-match">${bet.match}</div>
+                            <div class="bet-details">${bet.league} | ${bet.date}</div>
+                        </div>
+                        <div class="bet-pick">${bet.pick}</div>
+                        <div class="bet-odds">
+                            <div class="odds-value">@${bet.odds.toFixed(2)}</div>
+                            <div class="stake-value">$${bet.stake.toFixed(2)}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
