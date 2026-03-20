@@ -1,15 +1,16 @@
 {
   "bankroll": {
     "initial": 50.00,
-    "current": 55.58
+    "current": 57.26
   },
   "stats": {
     "totalBets": 13,
     "wins": 9,
     "losses": 4,
+    "pending": 8,
     "totalStaked": 18.07,
-    "totalReturned": 23.65,
-    "profitLoss": 5.58
+    "totalReturned": 25.33,
+    "profitLoss": 7.26
   },
   "markets": {
     "Handicap": {
@@ -46,7 +47,7 @@
       "total": 3,
       "wins": 1,
       "staked": 5.76,
-      "pl": -2.31
+      "pl": -0.63
     }
   },
   "bets": [
@@ -218,7 +219,95 @@
       "result": "❌ Lyon",
       "won": false,
       "pl": -0.58
+    },
+    {
+      "id": 14,
+      "date": "2026-03-20",
+      "league": "Serie A",
+      "match": "Cagliari vs Napoli",
+      "market": "ML",
+      "pick": "Napoli",
+      "odds": 1.67,
+      "stake": 1.72,
+      "status": "pending"
+    },
+    {
+      "id": 15,
+      "date": "2026-03-20",
+      "league": "Serie A",
+      "match": "Genoa vs Udinese",
+      "market": "Handicap",
+      "pick": "Genoa (0) AH",
+      "odds": 1.60,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 16,
+      "date": "2026-03-20",
+      "league": "Bundesliga",
+      "match": "RB Leipzig vs Hoffenheim",
+      "market": "BTTS",
+      "pick": "BTTS Sí",
+      "odds": 1.75,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 17,
+      "date": "2026-03-20",
+      "league": "Premier League",
+      "match": "Bournemouth vs Man United",
+      "market": "Handicap",
+      "pick": "Man United (0) AH",
+      "odds": 1.62,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 18,
+      "date": "2026-03-20",
+      "league": "La Liga",
+      "match": "Villarreal vs Real Sociedad",
+      "market": "BTTS",
+      "pick": "BTTS Sí",
+      "odds": 1.68,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 19,
+      "date": "2026-03-20",
+      "league": "Ligue 1",
+      "match": "Lens vs Angers",
+      "market": "BTTS",
+      "pick": "BTTS No",
+      "odds": 1.70,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 20,
+      "date": "2026-03-20",
+      "league": "Championship",
+      "match": "Preston vs Stoke",
+      "market": "DC",
+      "pick": "Stoke DC (X2)",
+      "odds": 1.60,
+      "stake": 1.15,
+      "status": "pending"
+    },
+    {
+      "id": 21,
+      "date": "2026-03-20",
+      "league": "Eredivisie",
+      "match": "Heracles vs Excelsior",
+      "market": "O/U",
+      "pick": "Under 2.5",
+      "odds": 1.85,
+      "stake": 0.58,
+      "status": "pending"
     }
   ],
-  "lastUpdated": "2026-03-20T04:16:00Z"
+  "lastUpdated": "2026-03-20T05:00:00Z"
 }
