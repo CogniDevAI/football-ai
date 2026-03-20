@@ -7,7 +7,7 @@
     "totalBets": 13,
     "wins": 9,
     "losses": 4,
-    "pending": 8,
+    "pending": 7,
     "totalStaked": 18.07,
     "totalReturned": 25.33,
     "profitLoss": 7.26
@@ -245,17 +245,6 @@
     {
       "id": 16,
       "date": "2026-03-20",
-      "league": "Bundesliga",
-      "match": "RB Leipzig vs Hoffenheim",
-      "market": "BTTS",
-      "pick": "BTTS Sí",
-      "odds": 1.75,
-      "stake": 1.15,
-      "status": "pending"
-    },
-    {
-      "id": 17,
-      "date": "2026-03-20",
       "league": "Premier League",
       "match": "Bournemouth vs Man United",
       "market": "Handicap",
@@ -265,7 +254,7 @@
       "status": "pending"
     },
     {
-      "id": 18,
+      "id": 17,
       "date": "2026-03-20",
       "league": "La Liga",
       "match": "Villarreal vs Real Sociedad",
@@ -276,7 +265,7 @@
       "status": "pending"
     },
     {
-      "id": 19,
+      "id": 18,
       "date": "2026-03-20",
       "league": "Ligue 1",
       "match": "Lens vs Angers",
@@ -287,7 +276,7 @@
       "status": "pending"
     },
     {
-      "id": 20,
+      "id": 19,
       "date": "2026-03-20",
       "league": "Championship",
       "match": "Preston vs Stoke",
@@ -298,7 +287,7 @@
       "status": "pending"
     },
     {
-      "id": 21,
+      "id": 20,
       "date": "2026-03-20",
       "league": "Eredivisie",
       "match": "Heracles vs Excelsior",
@@ -309,5 +298,5 @@
       "status": "pending"
     }
   ],
-  "lastUpdated": "2026-03-20T05:00:00Z"
+  "lastUpdated": "2026-03-20T05:02:00Z"
 }
