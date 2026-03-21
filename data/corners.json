@@ -1,16 +1,16 @@
 {
   "bankroll": {
     "initial": 10.00,
-    "current": 10.45
+    "current": 10.25
   },
   "stats": {
     "totalBets": 10,
     "wins": 6,
-    "losses": 3,
-    "pending": 1,
-    "totalStaked": 1.80,
+    "losses": 4,
+    "pending": 0,
+    "totalStaked": 2.00,
     "totalReturned": 2.25,
-    "profitLoss": 0.45
+    "profitLoss": 0.25
   },
   "bets": [
     {"id": 1, "date": "2026-03-20", "league": "La Liga", "match": "Villarreal vs Real Sociedad", "market": "Total Corners", "pick": "Menos 9.5", "odds": 1.87, "stake": 0.20, "result": "9 corners", "won": true, "pl": 0.17},
@@ -22,7 +22,7 @@
     {"id": 7, "date": "2026-03-21", "league": "Bundesliga", "match": "Heidenheim vs Bayer Leverkusen", "market": "Total Corners", "pick": "Menos 9.5", "odds": 1.91, "stake": 0.20, "result": "7 corners (2+5)", "won": true, "pl": 0.18},
     {"id": 8, "date": "2026-03-21", "league": "Serie A", "match": "AC Milan vs Torino", "market": "Total Corners", "pick": "Menos 9.5", "odds": 1.75, "stake": 0.20, "result": "11 corners", "won": false, "pl": -0.20},
     {"id": 9, "date": "2026-03-21", "league": "Premier League", "match": "Everton vs Chelsea", "market": "Team Corners", "pick": "Chelsea +corners", "odds": 1.82, "stake": 0.20, "result": "Chelsea 7, Everton 3", "won": true, "pl": 0.16},
-    {"id": 10, "date": "2026-03-21", "league": "Premier League", "match": "Leeds vs Brentford", "market": "Total Corners", "pick": "Más 9.5", "odds": 1.70, "stake": 0.20, "status": "pending"}
+    {"id": 10, "date": "2026-03-21", "league": "Premier League", "match": "Leeds vs Brentford", "market": "Total Corners", "pick": "Más 9.5", "odds": 1.70, "stake": 0.20, "result": "8 corners (0-0)", "won": false, "pl": -0.20}
   ],
   "lastUpdated": "2026-03-21T22:05:00Z"
 }
