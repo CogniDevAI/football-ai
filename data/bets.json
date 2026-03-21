@@ -7,7 +7,7 @@
     "totalBets": 21,
     "wins": 13,
     "losses": 8,
-    "pending": 0,
+    "pending": 4,
     "totalStaked": 26.70,
     "totalReturned": 33.06,
     "profitLoss": 6.36
@@ -335,7 +335,55 @@
       "result": "✅❌❌",
       "won": false,
       "pl": -0.58
+    },
+    {
+      "id": 22,
+      "date": "2026-03-21",
+      "league": "Premier League",
+      "match": "Brighton vs Liverpool",
+      "market": "ML",
+      "pick": "Liverpool",
+      "odds": 2.27,
+      "stake": 1.13,
+      "status": "pending",
+      "note": "⏳ Confirmar alineación"
+    },
+    {
+      "id": 23,
+      "date": "2026-03-21",
+      "league": "Premier League",
+      "match": "Everton vs Chelsea",
+      "market": "ML",
+      "pick": "Chelsea",
+      "odds": 2.12,
+      "stake": 1.13,
+      "status": "pending",
+      "note": "⏳ Confirmar alineación"
+    },
+    {
+      "id": 24,
+      "date": "2026-03-21",
+      "league": "Serie A",
+      "match": "AC Milan vs Torino",
+      "market": "Combo",
+      "pick": "Milan + Under 3.5",
+      "odds": 2.07,
+      "stake": 1.13,
+      "status": "pending",
+      "note": "⏳ Confirmar alineación"
+    },
+    {
+      "id": 25,
+      "date": "2026-03-21",
+      "league": "Serie A",
+      "match": "AC Milan vs Torino",
+      "market": "BTTS",
+      "pick": "BTTS No",
+      "odds": 1.72,
+      "stake": 1.13,
+      "status": "pending",
+      "note": "⏳ Confirmar alineación"
     }
   ],
-  "lastUpdated": "2026-03-20T22:20:00Z"
+  "lastUpdated": "2026-03-21T00:20:00Z"
 }
