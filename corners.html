@@ -77,6 +77,7 @@
             background: rgba(255,255,255,0.05);
             border-radius: 15px;
             padding: 20px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255,255,255,0.1);
         }
         
@@ -84,8 +85,129 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: #f39c12;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
+        /* Pending Cards Grid - Like main tracker */
+        .pending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .pending-card {
+            background: linear-gradient(135deg, rgba(30, 40, 60, 0.9), rgba(20, 30, 50, 0.95));
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .pending-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.2);
+        }
+        
+        .pending-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .pending-league {
+            font-size: 0.75rem;
+            color: #f39c12;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .pending-odds {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .pending-match {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        .pending-pick {
+            font-size: 1rem;
+            color: #2ecc71;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .pending-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .pending-stake {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .pending-return {
+            font-size: 1rem;
+            color: #2ecc71;
+            font-weight: 600;
+        }
+        
+        .pending-return::before {
+            content: '→ ';
+        }
+        
+        /* Summary Row */
+        .pending-summary {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .summary-value.staked {
+            color: #fff;
+        }
+        
+        .summary-value.potential {
+            color: #2ecc71;
+        }
+        
+        /* Completed bets list */
         .bet-card {
             background: rgba(0,0,0,0.3);
             border-radius: 10px;
@@ -95,10 +217,6 @@
             grid-template-columns: auto 1fr auto auto;
             gap: 15px;
             align-items: center;
-        }
-        
-        .bet-card.pending {
-            border-left: 4px solid #f39c12;
         }
         
         .bet-card.won {
@@ -134,11 +252,20 @@
         }
         
         .bet-pick {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.9rem;
+        }
+        
+        .bet-card.won .bet-pick {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+        
+        .bet-card.lost .bet-pick {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
         }
         
         .bet-odds {
@@ -151,10 +278,12 @@
             color: #3498db;
         }
         
-        .stake-value {
-            color: #888;
+        .result-value {
             font-size: 0.85rem;
         }
+        
+        .result-value.positive { color: #2ecc71; }
+        .result-value.negative { color: #e74c3c; }
         
         .nav-link {
             display: inline-block;
@@ -172,8 +301,13 @@
         }
         
         .parlay-card {
-            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(231, 76, 60, 0.2));
-            border: 2px solid #f39c12;
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), rgba(231, 76, 60, 0.2)) !important;
+        }
+        
+        .no-pending {
+            text-align: center;
+            padding: 30px;
+            color: #888;
         }
         
         @media (max-width: 600px) {
@@ -184,6 +318,10 @@
             
             .bet-id {
                 justify-self: center;
+            }
+            
+            .pending-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -199,10 +337,22 @@
             <!-- Stats loaded dynamically -->
         </div>
         
+        <!-- Pending Bets Section -->
+        <div class="bets-section" id="pending-section">
+            <h2 class="section-title">⏳ Apuestas Pendientes</h2>
+            <div class="pending-grid" id="pending-grid">
+                <!-- Pending bets loaded dynamically -->
+            </div>
+            <div class="pending-summary" id="pending-summary">
+                <!-- Summary loaded dynamically -->
+            </div>
+        </div>
+        
+        <!-- Completed Bets Section -->
         <div class="bets-section">
-            <h2 class="section-title">📊 Apuestas de Corners</h2>
+            <h2 class="section-title">📊 Historial de Apuestas</h2>
             <div id="bets-list">
-                <!-- Bets loaded dynamically -->
+                <!-- Completed bets loaded dynamically -->
             </div>
         </div>
         
@@ -215,7 +365,8 @@
                 const response = await fetch('data/corners.json');
                 const data = await response.json();
                 renderStats(data);
-                renderBets(data.bets);
+                renderPendingBets(data.bets);
+                renderCompletedBets(data.bets);
             } catch (error) {
                 console.error('Error loading data:', error);
             }
@@ -223,8 +374,9 @@
         
         function renderStats(data) {
             const { bankroll, stats } = data;
+            const completedBets = stats.totalBets - (stats.pending || 0);
             const roi = stats.totalStaked > 0 ? ((stats.profitLoss / stats.totalStaked) * 100).toFixed(1) : '0.0';
-            const winRate = stats.totalBets > 0 ? ((stats.wins / stats.totalBets) * 100).toFixed(1) : '0.0';
+            const winRate = completedBets > 0 ? ((stats.wins / completedBets) * 100).toFixed(1) : '0.0';
             
             document.getElementById('stats').innerHTML = `
                 <div class="stat-card">
@@ -238,8 +390,8 @@
                     <div class="stat-label">Profit/Loss</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">${stats.wins}/${stats.totalBets || stats.pending}</div>
-                    <div class="stat-label">Wins/Total</div>
+                    <div class="stat-value">${stats.wins}W-${stats.losses}L</div>
+                    <div class="stat-label">Record</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-value">${winRate}%</div>
@@ -250,36 +402,94 @@
                     <div class="stat-label">ROI</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value">${stats.pending}</div>
+                    <div class="stat-value" style="color: #f39c12;">${stats.pending || 0}</div>
                     <div class="stat-label">Pendientes</div>
                 </div>
             `;
         }
         
-        function renderBets(bets) {
+        function renderPendingBets(bets) {
+            const pendingBets = bets.filter(bet => bet.status === 'pending');
+            const container = document.getElementById('pending-grid');
+            const summaryContainer = document.getElementById('pending-summary');
+            const section = document.getElementById('pending-section');
+            
+            if (pendingBets.length === 0) {
+                container.innerHTML = '<div class="no-pending">No hay apuestas pendientes</div>';
+                summaryContainer.style.display = 'none';
+                return;
+            }
+            
+            let totalStaked = 0;
+            let potentialReturn = 0;
+            
+            container.innerHTML = pendingBets.map(bet => {
+                const stake = bet.stake || 0;
+                const returnAmount = (stake * bet.odds).toFixed(2);
+                totalStaked += stake;
+                potentialReturn += parseFloat(returnAmount);
+                
+                return `
+                    <div class="pending-card">
+                        <div class="pending-card-header">
+                            <span class="pending-league">${bet.league}</span>
+                            <span class="pending-odds">@ ${bet.odds.toFixed(2)}</span>
+                        </div>
+                        <div class="pending-match">${bet.match}</div>
+                        <div class="pending-pick">${bet.pick}</div>
+                        <div class="pending-card-footer">
+                            <span class="pending-stake">$${stake.toFixed(2)}</span>
+                            <span class="pending-return">$${returnAmount}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            summaryContainer.innerHTML = `
+                <div class="summary-item">
+                    <div class="summary-label">Total Apostado:</div>
+                    <div class="summary-value staked">$${totalStaked.toFixed(2)}</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Retorno Potencial:</div>
+                    <div class="summary-value potential">$${potentialReturn.toFixed(2)}</div>
+                </div>
+            `;
+            summaryContainer.style.display = 'flex';
+        }
+        
+        function renderCompletedBets(bets) {
+            const completedBets = bets.filter(bet => bet.status !== 'pending');
             const container = document.getElementById('bets-list');
             
+            if (completedBets.length === 0) {
+                container.innerHTML = '<div class="no-pending">No hay apuestas completadas aún</div>';
+                return;
+            }
+            
             // Sort by date descending, then by id descending
-            const sortedBets = [...bets].sort((a, b) => {
+            const sortedBets = [...completedBets].sort((a, b) => {
                 if (b.date !== a.date) return b.date.localeCompare(a.date);
                 return b.id - a.id;
             });
             
             container.innerHTML = sortedBets.map(bet => {
-                const statusClass = bet.status === 'pending' ? 'pending' : (bet.won ? 'won' : 'lost');
+                const statusClass = bet.won ? 'won' : 'lost';
                 const isParlay = bet.league === 'PARLAY';
+                const plClass = bet.pl >= 0 ? 'positive' : 'negative';
+                const plPrefix = bet.pl >= 0 ? '+' : '';
                 
                 return `
                     <div class="bet-card ${statusClass} ${isParlay ? 'parlay-card' : ''}">
                         <div class="bet-id">#${bet.id}</div>
                         <div class="bet-info">
                             <div class="bet-match">${bet.match}</div>
-                            <div class="bet-details">${bet.league} | ${bet.date}</div>
+                            <div class="bet-details">${bet.league} | ${bet.date} | ${bet.result || ''}</div>
                         </div>
                         <div class="bet-pick">${bet.pick}</div>
                         <div class="bet-odds">
                             <div class="odds-value">@${bet.odds.toFixed(2)}</div>
-                            <div class="stake-value">$${bet.stake.toFixed(2)}</div>
+                            <div class="result-value ${plClass}">${plPrefix}$${bet.pl.toFixed(2)}</div>
                         </div>
                     </div>
                 `;
