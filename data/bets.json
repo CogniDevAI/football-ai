@@ -1,16 +1,16 @@
 {
   "bankroll": {
     "initial": 50.00,
-    "current": 56.36
+    "current": 55.23
   },
   "stats": {
     "totalBets": 21,
     "wins": 13,
-    "losses": 8,
-    "pending": 3,
+    "losses": 9,
+    "pending": 2,
     "totalStaked": 26.70,
     "totalReturned": 33.06,
-    "profitLoss": 6.36
+    "profitLoss": 5.23
   },
   "markets": {
     "Handicap": { "total": 4, "wins": 3, "staked": 6.30, "pl": 3.66 },
@@ -18,7 +18,7 @@
     "Combo": { "total": 3, "wins": 2, "staked": 3.50, "pl": 0.93 },
     "Goleador": { "total": 1, "wins": 1, "staked": 0.50, "pl": 0.60 },
     "Parlay": { "total": 3, "wins": 1, "staked": 1.66, "pl": 0.34 },
-    "ML": { "total": 4, "wins": 2, "staked": 7.48, "pl": 0.52 },
+    "ML": { "total": 5, "wins": 2, "staked": 8.61, "pl": -0.61 },
     "DC": { "total": 1, "wins": 0, "staked": 1.15, "pl": -1.15 },
     "O/U": { "total": 1, "wins": 1, "staked": 0.58, "pl": 0.49 }
   },
@@ -46,7 +46,7 @@
     {"id": 21, "date": "2026-03-20", "league": "MULTI", "match": "🎰 LA SOÑADORA", "market": "Parlay", "pick": "Napoli + Lens BTTS No + Stoke DC", "odds": 4.54, "stake": 0.58, "result": "✅❌❌", "won": false, "pl": -0.58},
     {"id": 22, "date": "2026-03-21", "league": "Serie A", "match": "AC Milan vs Torino", "market": "Combo", "pick": "Milan + U3.5", "odds": 2.07, "stake": 1.13, "status": "pending"},
     {"id": 23, "date": "2026-03-21", "league": "Serie A", "match": "AC Milan vs Torino", "market": "BTTS", "pick": "BTTS No", "odds": 1.72, "stake": 1.13, "status": "pending"},
-    {"id": 24, "date": "2026-03-21", "league": "Premier League", "match": "Everton vs Chelsea", "market": "ML", "pick": "Chelsea", "odds": 2.12, "stake": 1.13, "status": "pending"}
+    {"id": 24, "date": "2026-03-21", "league": "Premier League", "match": "Everton vs Chelsea", "market": "ML", "pick": "Chelsea", "odds": 2.12, "stake": 1.13, "result": "0-3", "won": false, "pl": -1.13}
   ],
-  "lastUpdated": "2026-03-21T14:50:00Z"
+  "lastUpdated": "2026-03-21T21:15:00Z"
 }
