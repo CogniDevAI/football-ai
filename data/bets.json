@@ -4,16 +4,16 @@
     "current": 51.84
   },
   "stats": {
-    "totalBets": 28,
+    "totalBets": 27,
     "wins": 13,
     "losses": 11,
-    "pending": 4,
-    "totalStaked": 34.22,
+    "pending": 3,
+    "totalStaked": 33.22,
     "totalReturned": 33.06,
     "profitLoss": 1.84
   },
   "markets": {
-    "Handicap": { "total": 7, "wins": 3, "staked": 9.30, "pl": 3.66 },
+    "Handicap": { "total": 6, "wins": 3, "staked": 8.30, "pl": 3.66 },
     "BTTS": { "total": 5, "wins": 3, "staked": 6.68, "pl": 0.84 },
     "Combo": { "total": 4, "wins": 2, "staked": 4.63, "pl": -0.20 },
     "Goleador": { "total": 1, "wins": 1, "staked": 0.50, "pl": 0.60 },
@@ -48,9 +48,8 @@
     {"id": 23, "date": "2026-03-21", "league": "Serie A", "match": "AC Milan vs Torino", "market": "BTTS", "pick": "BTTS No", "odds": 1.72, "stake": 1.13, "result": "3-2 (BTTS Sí)", "won": false, "pl": -1.13},
     {"id": 24, "date": "2026-03-21", "league": "Premier League", "match": "Everton vs Chelsea", "market": "ML", "pick": "Chelsea", "odds": 2.12, "stake": 1.13, "result": "3-0", "won": false, "pl": -1.13},
     {"id": 25, "date": "2026-03-22", "league": "Premier League", "match": "Tottenham vs Nottingham Forest", "market": "O/U", "pick": "Over 2.5", "odds": 1.91, "stake": 1.00, "status": "pending"},
-    {"id": 26, "date": "2026-03-22", "league": "La Liga", "match": "Barcelona vs Rayo Vallecano", "market": "Handicap", "pick": "Barcelona -1.5 AH", "odds": 1.80, "stake": 1.00, "status": "pending"},
-    {"id": 27, "date": "2026-03-22", "league": "Serie A", "match": "Atalanta vs Verona", "market": "Handicap", "pick": "Atalanta -1.5 AH", "odds": 1.85, "stake": 1.00, "status": "pending"},
-    {"id": 28, "date": "2026-03-22", "league": "Premier League", "match": "Aston Villa vs West Ham", "market": "Handicap", "pick": "Villa -0.5 AH", "odds": 1.65, "stake": 1.00, "status": "pending"}
+    {"id": 26, "date": "2026-03-22", "league": "Serie A", "match": "Atalanta vs Verona", "market": "Handicap", "pick": "Atalanta -1.5 AH", "odds": 1.85, "stake": 1.00, "status": "pending"},
+    {"id": 27, "date": "2026-03-22", "league": "Premier League", "match": "Aston Villa vs West Ham", "market": "Handicap", "pick": "Villa -0.5 AH", "odds": 1.65, "stake": 1.00, "status": "pending"}
   ],
-  "lastUpdated": "2026-03-22T13:52:00Z"
+  "lastUpdated": "2026-03-22T14:06:00Z"
 }
